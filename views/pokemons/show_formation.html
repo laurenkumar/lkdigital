@@ -1,0 +1,36 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<div class="display_flex3">
+    <div class="flex2">
+        <h3 class="titre-title2"><a href="/formation">Formations</a></h3>
+        <div class="display_flex3 son_flex">
+            <div class="flex2">
+                <div class="">
+                    <h4 class="titre-title"><a href="/formation/{{formations._id}}" itemprop="name" class="titre_job">{{formations.titre}}</a></h4>
+                    <h5 class="styleh">
+                        <span class="company-name">{{formations.entreprise}}</span>
+                        <span>{{formations.datedebut}} à {{formations.datefin}}</span>
+                    </h5>
+                </div>      
+                <div class="">
+                    <p class="style_p">
+                        {{formations.description}}
+                    </p>
+                </div>
+
+                <div class="footer_experience">
+                    {% if formations.diplome %}
+                    Diplome Délivré
+                    <span class="experience-data city" itemprop="location">
+                        {{formations.diplome}}
+                    </span>
+                    {% endif %}
+                    <a class="style_rect" href="/formation/{{formations._id}}">En savoir +</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,51 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<link rel="stylesheet" href="fontawesome-stars.css">
+<script src="./jquery.barrating.js"></script>
+<div class="display_flex3">
+
+	<div class="flex2">
+		<h3 class="titre-title2"><a href="/competence">Compétences</a></h3>
+		{% for t in titrecompetence %}
+		<div class="display_flex3 son_flex">
+			<div class="flex2">
+				<div class="">
+					<h4 class="titre-title"><a href="/competence" itemprop="name" class="titre_job">{{t.titre}}</a></h4>
+					{% for c in competence %}
+						{% if c.titre == t.titre %}
+						<div class="">
+							<h5 class="styleh">
+								<span class="competence-name">{{c.competence}}</span>
+							</h5>
+							<div class=" br-wrapper br-theme-fontawesome-stars">
+		                        <select class="rating" name="rating" value="{{c.rating}}">
+		                          {% for i in range(1, 6) -%}
+		                          	{% if i == c.rating %}
+		                          		<option value="{{i}}" selected="{{c.rating}}">{{i}}</option>
+		                          	{% else %}
+		                         		<option value="{{i}}">{{i}}</option>
+		                         	{% endif %}
+		                          {%- endfor %}
+		                        </select>
+		                    </div>
+	                    </div>
+	                    {% endif %}
+                    {% endfor %}
+				</div>
+			</div>
+		</div>
+		{% endfor %}
+	</div>
+
+
+</div>
+<script>
+   $(function() {
+      $('.rating').barrating({
+        theme: 'fontawesome-stars',
+        readonly: true,
+      });
+   });
+</script>
+{% endblock %}

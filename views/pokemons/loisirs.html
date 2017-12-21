@@ -1,0 +1,30 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<div class="display_flex3">
+
+	<div class="flex2">
+		<h3 class="titre-title2"><a href="/loisirs">Loisirs</a></h3>
+		<div class="display_flex3 son_flex">
+			<div class="flex2">
+				<div class="">
+					{% for l in loisirs %}
+					<div>
+						<h4 class="titre-title"><a href="/loisirs" itemprop="name" class="titre_job">{{l.titre}}</a></h4>
+						{{l.loisir | safe }}
+					</div>
+					{% endfor %}
+				</div>    	
+			</div>
+		</div>
+	</div>
+
+
+</div>
+<script>
+   $(function() {
+
+   });
+</script>
+{% endblock %}

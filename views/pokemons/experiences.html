@@ -1,0 +1,46 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<div class="display_flex3">
+
+	<div class="flex2">
+		<h3 class="titre-title2"><a href="/experiences">Expèriences</a></h3>
+		{% for e in experiences %}
+		<div class="display_flex3 son_flex">
+			<div class="flex2">
+				<div class="">
+					<h4 class="titre-title"><a href="/:{{e.id}}" itemprop="name" class="titre_job">{{e.titre}}</a></h4>
+					<h5 class="styleh">
+						<span class="company-name">{{e.entreprise}} . {{e.date}}</span>
+					</h5>
+				</div>    	
+				<div class="">
+					<p class="style_p">
+						{{e.description}}
+					</p>
+				</div>
+
+				<div class="footer_experience">
+					<span class="experience-data contract-type">{{e.contrat}}</span>
+					<span class="experience-data city" itemprop="location">
+						{{e.location}}
+					</span>
+						<a class="style_rect" href="/:{{e.id}}">En savoir +</a>
+				</div>
+			</div>
+			<div class="flex text_center">
+				<img class="experience-logo" src="../uploads/{{e.logo}}" itemprop="image">
+			</div>
+		</div>
+		{% endfor %}
+	</div>
+
+
+</div>
+<script>
+   $(function() {
+      
+   });
+</script>
+{% endblock %}

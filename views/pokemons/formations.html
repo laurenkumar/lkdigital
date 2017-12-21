@@ -1,0 +1,46 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<div class="display_flex3">
+
+	<div class="flex2">
+		<h3 class="titre-title2"><a href="/formation">Formations</a></h3>
+		{% for f in formation %}
+		<div class="display_flex3 son_flex">
+			<div class="flex2">
+				<div class="">
+					<h4 class="titre-title"><a href="/:{{f.id}}" itemprop="name" class="titre_job">{{f.titre}}</a></h4>
+					<h5 class="styleh">
+						<span class="company-name">{{f.entreprise}}</span>
+						<span>{{f.datedebut}} à {{f.datefin}}</span>
+					</h5>
+				</div>    	
+				<div class="">
+					<p class="style_p">
+						{{f.description}}
+					</p>
+				</div>
+
+				<div class="footer_experience">
+					{% if f.diplome %}
+					Diplome Délivré
+					<span class="experience-data city" itemprop="location">
+						{{f.diplome}}
+					</span>
+					{% endif %}
+					<a class="style_rect" href="/:{{f.id}}">En savoir +</a>
+				</div>
+			</div>
+		</div>
+		{% endfor %}
+	</div>
+
+
+</div>
+<script>
+   $(function() {
+
+   });
+</script>
+{% endblock %}

@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <title>LK DIGITAL</title>
+        <meta charset="UTF-8"/>
+        <meta name="description" content="lkdigital agence web" />
+        <meta name="keywords" content="agence, web, Dorian, Laurenceau, Sopika, Uthayakumar, blog, world, tourism, developpeur, developper, map, cms" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="apple-touch-icon" sizes="57x57" href="/apple-icon-57x57.png">
+        <link rel="apple-touch-icon" sizes="60x60" href="/apple-icon-60x60.png">
+        <link rel="apple-touch-icon" sizes="72x72" href="/apple-icon-72x72.png">
+        <link rel="apple-touch-icon" sizes="76x76" href="/apple-icon-76x76.png">
+        <link rel="apple-touch-icon" sizes="114x114" href="/apple-icon-114x114.png">
+        <link rel="apple-touch-icon" sizes="120x120" href="/apple-icon-120x120.png">
+        <link rel="apple-touch-icon" sizes="144x144" href="/apple-icon-144x144.png">
+        <link rel="apple-touch-icon" sizes="152x152" href="/apple-icon-152x152.png">
+        <link rel="apple-touch-icon" sizes="180x180" href="/apple-icon-180x180.png">
+        <link rel="icon" type="image/png" sizes="192x192"  href="/android-icon-192x192.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+        <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+        <link rel="manifest" href="/manifest.json">
+        <meta name="msapplication-TileColor" content="#ffffff">
+        <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+        <meta name="theme-color" content="#ffffff">
+        <script src="/modernizr.min.js"></script>
+        <script src="/jquery.min.js"></script>
+        <script src="/materialize.min.js"></script>
+        <script src="./jspdf.min.js"></script>
+        <script src="./jscolor.min.js"></script>
+        <script src="particles.js"></script>
+        <link href="/style.css" rel="stylesheet">
+        <link rel="stylesheet" href="/css/font-awesome.min.css">
+
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-110675121-1"></script>
+        <script>
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+
+          gtag('config', 'UA-110675121-1');
+        </script>
+    </head>
+    <body>
+        <div class="text_center" id="present_world">
+          <div class="container">
+            <a href="/" class="centered "><img src="uploads/LogoLKDigital.png" id="height_logo"></a>
+            <!--<a href="#us" class="bottom" id="link_projects">OUR PROJECTS</a>-->
+            <a href="#contact" class="bottom_left bottom hover_us social-icon" onclick="openContact()"> 
+              <i class="fa fa-map-marker fa-2x"></i>
+              <div class="myText">
+                CONTACT
+              </div>
+            </a>
+            <a href="#work" id="work_project" class="bottom_right hover_us social-icon" onclick="openWork()"> 
+              <div class="myText">
+                PROJECTS
+              </div>
+              <i class="fa fa-pencil fa-2x"></i>
+            </a>
+            <a href="#" class="top_right social-icon" id="menu_always"> <i class="fa fa-bars fa-2x" onclick="openNav()"></i>
+              <div id="mySidenav" class="sidenav">
+                <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+                <a href="#us">About US</a>
+                <a href="#work">Projects</a>
+                <a href="#contact">Contact</a>
+                <footer>
+                  <div class="footer-social-icons">
+                    <ul class="social-icons">
+                        <li><a href="http://facebook.com/dorian.laurenceau" class="social-icon"> <i class="fa fa-facebook"></i></a></li>
+                        <li><a href="http://instagram.com/lauren_dodo8/" class="social-icon"> <i class="fa fa-instagram"></i></a></li>
+                        <li><a href="http://linkedin.com/in/laurenceau/" class="social-icon"> <i class="fa fa-linkedin"></i></a></li>
+                    </ul>
+                  </div>
+                  <div class="text_center display_flex">
+                       © 2017 LK DIGITAL
+                  </div>
+                </footer>
+              </div>
+            </a>
+            <a href="#us" class="top_left hover_us social-icon" onclick="openUs()"> 
+              <i class="fa fa-user fa-2x"></i>
+              <div class="myText">
+                ABOUT US
+              </div>
+            </a>
+
+            <div id="particles-js"></div>
+          </div>
+        </div>
+        <div id="main" class="container">
+            {% block content %}{% endblock %}
+        </div>
+        <script>
+          $(function() {
+            $("nav li a").click(function() {
+              $("nav li a").removeClass("current");
+              $(this).addClass("current");
+            });
+
+          });
+
+          particlesJS.load('particles-js', 'assets/particles.json', function() {
+            console.log('callback - particles.js config loaded');
+          });
+
+          particlesJS.load('particles-js2', 'assets/particles2.json', function() {
+            console.log('callback - particles.js config loaded');
+          });
+
+          function openNav() {
+              var is_mobile = false;
+
+              var isMobile = window.matchMedia("only screen and (max-width: 760px)");
+
+              if (isMobile.matches) {
+                document.getElementById("mySidenav").style.width = "100%";
+                document.getElementById("mySidenav").style.opacity = "1";
+                document.getElementById("mySidenav").style.top = "0%";
+                document.getElementById("mySidenav").style.left = "0%";
+
+
+              } else {
+                document.getElementById("mySidenav").style.width = "20%";
+                document.getElementById("menu_always").style.visibility = "hidden";
+                document.getElementById("work_project").style.visibility = "hidden";
+              }
+          }
+
+          function closeNav() {
+              document.getElementById("mySidenav").style.width = "0";
+              document.getElementById("menu_always").style.visibility = "visible";
+              document.getElementById("work_project").style.visibility = "visible";
+          }
+
+          function openContact() {
+              document.getElementById("contact").style.width = "100%";
+          }
+
+          function closeContact() {
+              document.getElementById("contact").style.width = "0";
+          }
+
+          function openWork() {
+              document.getElementById("work").style.width = "100%";
+          }
+
+          function closeWork() {
+              document.getElementById("work").style.width = "0";
+          }
+
+          function openUs() {
+              document.getElementById("us").style.width = "100%";
+          }
+
+          function closeUs() {
+              document.getElementById("us").style.width = "0";
+          }
+
+          (function($) { // Begin jQuery
+            $(function() { // DOM ready
+              // If a link has a dropdown, add sub menu toggle.
+              $('nav ul li a:not(:only-child)').click(function(e) {
+                $(this).siblings('.nav-dropdown').toggle();
+                // Close one dropdown when selecting another
+                $('.nav-dropdown').not($(this).siblings()).hide();
+                e.stopPropagation();
+              });
+              // Clicking away from dropdown will remove the dropdown class
+              $('html').click(function() {
+                $('.nav-dropdown').hide();
+              });
+              // Toggle open and close nav styles on click
+              $('#nav-toggle').click(function() {
+                $('nav ul').slideToggle();
+              });
+              // Hamburger to X toggle
+              $('#nav-toggle').on('click', function() {
+                this.classList.toggle('active');
+              });
+            }); // end DOM ready
+          })(jQuery); // end jQuery
+
+          
+        </script>
+    </body>
+</html>

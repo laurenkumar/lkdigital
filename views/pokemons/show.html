@@ -1,0 +1,36 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<div class="display_flex3">
+    <div class="flex2">
+            <h3 class="titre-title2"><a href="/experiences">Expèriences</a></h3>
+            <div class="display_flex3 son_flex">
+                <div class="flex2">
+                    <div class="">
+                        <h4 class="titre-title"><a href="/experience/{{experiences._id}}" itemprop="name" class="titre_job">{{experiences.titre}}</a></h4>
+                        <h5 class="styleh">
+                            <span class="company-name">{{experiences.entreprise}} . {{experiences.date}}</span>
+                        </h5>
+                    </div>      
+                    <div class="">
+                        <p class="style_p">
+                            {{experiences.description}}
+                        </p>
+                    </div>
+
+                    <div class="footer_experience">
+                        <span class="experience-data contract-type">{{experiences.contrat}}</span>
+                        <span class="experience-data city" itemprop="location">
+                            {{experiences.location}}
+                        </span>
+                            <a class="style_rect" href="/experience/{{experiences._id}}">En savoir +</a>
+                    </div>
+                </div>
+                <div class="flex text_center">
+                    <img class="experience-logo" src="../uploads/{{experiences.logo}}" itemprop="image">
+                </div>
+            </div>
+    </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,236 @@
+{% extends "layout.html" %}
+
+{% block content %}
+    <link rel="stylesheet" href="fontawesome-stars.css">
+    <script src="./jquery.barrating.js"></script>
+    <script src="./tinymce/tinymce.min.js"></script>
+    <div class="display_flex">
+        <div class="flex1 administration">
+            <div>
+                <h2>Administration portfolio</h2>
+                <form method="POST" action="/admin" id="admini" enctype="multipart/form-data">
+                    <div class="form-group">
+                        <label for="file">Portfolio de :</label>
+                        <input type="text" id="name" name="name" placeholder="cv de ....">
+                    </div>
+                    <div class="form-group">
+                        <label for="file">Titre du Portfolio: </label>
+                        <input type="text" id="titre" name="titre" placeholder="Agent de ....">
+                    </div>
+                    <div class="form-group">
+                        <label for="file">Phrase d'accroche: </label>
+                        <input type="text" id="accroche" name="accroche" placeholder="Agent de ....">
+                    </div>
+                    <div class="form-group">
+                        <label for="file">logo</label>
+                        <input type="file" id="logo" class="align_file" name="logo">
+                    </div>
+                    <div class="form-group">
+                        <label for="file">background</label>
+                        <input type="file" id="background" class="align_file" name="background">
+                    </div>
+                    <input type="submit" class="btn btn-primary" value="Enregistrer"/>
+                </form>
+            </div>
+            <hr>
+            <div>
+                <h2>Infos Personnelles</h2>
+                <form method="POST" action="/infos" id="admini" enctype="multipart/form-data">
+                    <div class="form-group">
+                        <label for="file">Photos To Add</label>
+                        <input type="file" id="file" class="align_file" name="file">
+                    </div>
+                    <div class="form-group">
+                        <label for="name">INFOS</label>
+                        <input type="number" id="age" name="age" class="form-control">
+                        <input type="text" id="permis" name="permis" class="form-control" placeholder="oui ou non">
+                        <input type="text" id="ville" name="ville" class="form-control" placeholder="paris">
+
+                    </div>
+                    <div class="form-group">
+                        <label for="name">CONTACT</label>
+                        <input type="email" id="email" name="email" class="form-control" placeholder="email">
+                        <input type="text" id="skype" name="skype" class="form-control" placeholder="">
+                        <input type="text" id="linkedin" name="linkedin" class="form-control" placeholder="">
+
+                    </div>
+                    <div class="form-group">
+                        <label for="name">SITUATION Professionnelle</label>
+                        <input type="text" id="situation" name="situation" class="form-control" placeholder="">
+                        <input type="text" id="recherche" name="recherche" class="form-control" placeholder="en recherche active ? oui ou non">
+
+                    </div>
+                    <div class="form-group">
+                        <label for="description">Description</label>
+                        <textarea class="form-control" id="description" name="description"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="description">MES LIENS</label>
+                        <input type="text" id="facebook" name="facebook" class="form-control" placeholder="facebook">
+                        <input type="text" id="twiter" name="twiter" class="form-control" placeholder="pseudo twitter">
+                        <input type="text" id="linkedin" name="linkedin" class="form-control" placeholder="pseudo linkedin">
+                    </div>
+                    <input type="submit" class="btn btn-primary" value="Enregistrer"/>
+                </form>
+            </div>
+        </div>
+        <div class="flex1 administration">
+            <div>
+                <div>
+                    <h2>Ajouter un Project</h2>
+                <form method="POST" action="/experience" id="admini" enctype="multipart/form-data">
+                    <div class="form-group">
+                        <label for="name">Nom de l'entreprise ou du projet</label>
+                        <input type="text" id="titre" name="titre" class="form-control" placeholder="chef de projet">
+
+                    </div>
+                    <div class="form-group">
+                        <label for="name">Site de l'entreprise ou du projet</label>
+                        <input type="text" id="lien" name="lien" class="form-control" placeholder="chef de projet">
+
+                    </div>
+                    <div class="form-group">
+                        <label for="description">Description</label>
+                        <textarea class="form-control" id="description" name="description"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="name">Image entreprise</label>
+                        <input type="file" id="screenshot" class="align_file" name="screenshot">
+                    </div>
+                    <input type="submit" class="btn btn-primary" value="Enregistrer"/>
+                </form>
+                </div>
+            </div>
+            <hr>
+            <div class="fix_me">
+                {% for p in pokemons | sort('pays') %}
+                    <div class="panel panel-default sorting">
+                        <div class="panel-heading">
+                            <a href="/{{p._id}}">{{p.name}}</a>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+        <div class="flex1 administration">
+            <div>
+                <div>
+                    <h2>Ajouter un travail</h2>
+                <form method="POST" action="/formation" id="admini" enctype="multipart/form-data">
+                    <div class="form-group">
+                        <label for="name">Titre de l'entreprise</label>
+                        <input type="text" id="titre" name="titre" class="form-control" placeholder="chef de projet">
+
+                    </div>
+                    <div class="form-group">
+                        <label for="name">Site de l'entreprise</label>
+                        <input type="text" id="lien" name="lien" class="form-control" placeholder="chef de projet">
+
+                    </div>
+                    <div class="form-group">
+                        <label for="description">Description</label>
+                        <textarea class="form-control" id="description" name="description"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="name">Image entreprise</label>
+                        <input type="file" id="screenshot" class="align_file" name="screenshot">
+                    </div>
+                    <input type="submit" class="btn btn-primary" value="Enregistrer"/>
+                </form>
+                </div>
+            </div>
+        </div>
+        <div class="flex1 administration">
+            <div>
+                <div>
+                    <h2>Ajouter un groupe de Compétence</h2>
+                <form method="POST" action="/titrecompetence" id="admini" enctype="multipart/form-data">
+                    <div class="form-group">
+                        <label for="name">Nom du groupe de Compétences</label>
+                        <input type="text" id="titre" name="titre" class="form-control" placeholder="chef de projet">
+
+                    </div>
+                    <input type="submit" class="btn btn-primary" value="Enregistrer"/>
+                </form>
+                </div>
+            </div>
+        </div>
+
+        <div class="flex1 administration">
+            <div>
+                <div>
+                    <h2>Ajouter une Compétence</h2>
+                <form method="POST" action="/competence" id="admini" enctype="multipart/form-data">
+                    <div class="form-group">
+                        <label for="name">Nom du groupe de Compétences</label>
+                        <select id="titre" name="titre">
+                            {% for t in titrecompetence %}  
+                            <option value="{{t.titre}}">{{t.titre}}</option>
+                            {% endfor %}
+                        </select>
+
+                    </div>
+                    <div class="form-group">
+                        <label for="name">Nom de la compétence</label>
+                        <input type="text" id="competence" name="competence" class="form-control" placeholder="google">
+
+                    </div>
+                    <div class="form-group br-wrapper br-theme-fontawesome-stars">
+                        <select id="rating" name="rating">
+                          <option value="1">1</option>
+                          <option value="2">2</option>
+                          <option value="3">3</option>
+                          <option value="4">4</option>
+                          <option value="5">5</option>
+                        </select>
+                    </div>
+                    <input type="submit" class="btn btn-primary" value="Enregistrer"/>
+                </form>
+                </div>
+            </div>
+        </div>
+
+        <div class="flex1 administration">
+            <div>
+                <div>
+                    <h2>Ajouter un loisir</h2>
+                <form method="POST" action="/loisirs" id="admini" enctype="multipart/form-data">
+                    <div class="form-group">
+                        <label for="name">Nom du groupe de Loisirs</label>
+                        <input type="text" id="titre" name="titre">
+
+                    </div>
+                    <div class="form-group">
+                        <label for="name">Descriptif</label>
+                        <textarea id="loisir" name="loisir" ></textarea>
+                    </div>
+                    <input type="submit" class="btn btn-primary" value="Enregistrer"/>
+                </form>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <script>
+       $(function() {
+          $('#rating').barrating({
+            theme: 'fontawesome-stars',
+          });
+          tinyMCE.init({ 
+                    selector:'#loisir',
+                    theme: "modern",
+                    language: 'fr_FR',
+                    width: "98%",
+                    height: 100,
+                    plugins: 'textcolor link print',
+                    toolbar: ["forecolor | fontsizeselect | undo redo | bold italic underline | image | alignleft aligncenter alignright | link | print"],
+                    valid_elements: "@[class],p[style],span[style],h3,h4,h5,h6,a[href|target],ul,li,strong/b,div[align],br",
+                    setup: function (editor) {
+                        editor.on('change', function () {
+                            editor.save();
+                        });
+                    }
+          });
+       });
+    </script>
+{% endblock %}
